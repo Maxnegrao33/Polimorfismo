@@ -1,0 +1,68 @@
+//Criando uma classe Bebida
+
+	public class Bebida {
+		private String nome;
+		private boolean aquecer;
+
+		public bebida (String nome, boolean aquecer) {
+			this.nome = nome;
+			this.aquecer = aquecer;
+//Como está usando o construtor não precisa usar o método setter, podendo chamar só o getter
+	//pode digitar get (Ctrl + espaço)
+	
+	} 
+	public String getNome() {
+		return nome;
+	}
+
+	//pode digitar is (Ctrl + espaço)
+
+	public boolean isAquecer() {
+		return aquecer;
+	}
+}
+
+//Criando uma classe Preparador
+
+	public class Preparador {
+		public void prepararBebida (Bebida bebida) {
+	
+	System.out.println(“Preparando a bebida ” + bebida.getNome());
+
+	bebida.preparar();
+	
+	if (bebida.isAquecer()) {
+		System.out.println(“Aquecendo a bebida ” + bebida.getNome());
+		}
+		System.out.println(“Bebida preparada com sucesso”)
+	}
+}
+
+//Criando uma classe e herdando da outra
+	public class LeiteQuente extends Bebida {
+		//chamando o construtor com parâmetros
+	public LeiteQuente() {
+		super(Leite quente, true) //parâmetros do construtor
+	}
+	
+	//Sobrescrevendo o método preparar, pois cada bebida tem seu método próprio de preparo
+	@Override
+	public void preparar() {
+		System.out.println(“Pegando um copo”);
+		System.out.println(“Colocando leite no copo”);
+	}
+
+}
+
+//Mas para preparar o Leite, preciso do objeto Leite
+	public class Aplicacao {
+		public static void main (String[] args) {
+
+		LeiteQuente leite = new LeiteQuente();
+
+		Preparador preparador = new Preparador();
+		preparador.prepararBebida(leite);
+
+
+	}
+}
